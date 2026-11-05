@@ -1,1 +1,1 @@
-{"builds": [{"chipFamily": "ESP32-S3", "parts": [{"offset": 0, "path": "esp32-sunton-ssh-merged.bin"}]}], "name": "Sunton ESP32-8048S050 SSH Terminal", "new_install_prompt_erase": true, "version": "1.4.0"}
+{"builds": [{"chipFamily": "ESP32-S3", "parts": [{"offset": 0, "path": "esp32-sunton-ssh-merged.bin"}]}], "name": "Sunton ESP32-8048S050 SSH Terminal", "new_install_prompt_erase": true, "version": "1.5.0"}
