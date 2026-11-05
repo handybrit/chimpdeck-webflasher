@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunton SSH Terminal Web Flasher</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2em auto; padding: 0 1em; line-height: 1.5; }
+h1 { font-size: 1.4em; }
+code { background: #f0f0f0; padding: 0.1em 0.3em; }
+</style>
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js"></script>
+</head>
+<body>
+<h1>Sunton ESP32-8048S050 SSH Terminal</h1>
+<p>Flash the terminal firmware to your Sunton 5 inch display, straight from this page. No command line, no esptool install.</p>
+<p><esp-web-install-button manifest="./manifest.json"></esp-web-install-button></p>
+<h2>How to use it</h2>
+<ol>
+<li>Use desktop Chrome or Edge on a Mac or PC. Web Serial does not work in Safari, Firefox, or on an iPad.</li>
+<li>Plug the Sunton display into the computer with a USB data cable.</li>
+<li>Click Install above, then pick the Sunton serial port in the browser dialog. It is usually listed as USB-SERIAL CH340 or similar.</li>
+<li>When asked, choose to erase the flash for a clean first install. That wipes any old settings on the board.</li>
+<li>Wait for the flash to finish, then the display reboots into the launcher.</li>
+</ol>
+<h2>After flashing</h2>
+<p>On the display: open WiFi and connect, add a server in Server Profiles, pair a Bluetooth keyboard in Bluetooth Keyboards, then open SSH Terminal. Full instructions are in the <a href="https://github.com/handybrit/esp32-sunton-ssh-terminal">repo README</a>.</p>
+<p>Firmware: merged image <code>esp32-sunton-ssh-merged.bin</code>, flashed to offset <code>0x0</code>, ESP32-S3, 16 MB flash. Version 1.0.0.</p>
+<p>Note: this firmware pairs with BLE keyboards only. The ESP32-S3 has no Classic Bluetooth, so a Classic-only keyboard will not appear in scans.</p>
+</body>
+</html>
