@@ -5,12 +5,12 @@
       "parts": [
         {
           "offset": 0,
-          "path": "esp32-sunton-ssh-merged.bin"
+          "path": "chimpdeck-merged.bin"
         }
       ]
     }
   ],
   "name": "ChimpDeck Console",
   "new_install_prompt_erase": true,
-  "version": "1.17.0"
+  "version": "1.18.0"
 }
