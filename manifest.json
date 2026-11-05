@@ -1,1 +1,1 @@
-{"builds": [{"chipFamily": "ESP32-S3", "parts": [{"offset": 0, "path": "esp32-sunton-ssh-merged.bin"}]}], "name": "ChimpDeck Console", "new_install_prompt_erase": true, "version": "1.7.0"}
+{"builds": [{"chipFamily": "ESP32-S3", "parts": [{"offset": 0, "path": "esp32-sunton-ssh-merged.bin"}]}], "name": "ChimpDeck Console", "new_install_prompt_erase": true, "version": "1.8.0"}
