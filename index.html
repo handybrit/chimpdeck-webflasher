@@ -19,22 +19,14 @@
     max-width: 680px;
     margin: 0 auto;
     padding: 2em 1em 3em;
+    text-align: center;
   }
-  a { color: var(--amber); }
-  a:visited { color: var(--amber-dim); }
-  code {
-    background: #1a1200;
-    border: 1px solid var(--amber-dim);
-    color: var(--amber);
-    padding: 0.05em 0.3em;
-  }
-  header { text-align: center; margin-bottom: 1em; }
+  header { margin-bottom: 1em; }
   header img {
     display: block;
     width: 180px;
     height: 180px;
     margin: 0 auto 0.2em;
-    image-rendering: auto;
   }
   h1 {
     font-size: 3em;
@@ -43,42 +35,16 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-  .subtitle {
-    font-size: 1.2em;
-    color: var(--amber-dim);
-    margin: 0.2em 0 0;
-  }
-  .term {
-    border: 1px solid var(--amber);
-    padding: 1em 1.2em;
-    margin: 1em 0;
-  }
-  .term h2 {
-    font-size: 1.4em;
-    margin: 0 0 0.5em;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .term h2::before { content: "> "; }
-  .term p, .term ol { margin: 0.5em 0; }
-  .term ol { padding-left: 1.4em; }
-  .term li { margin: 0.25em 0; }
+  .version { color: var(--amber-dim); margin: 0.4em 0 0; }
   .flash-box {
     border: 1px solid var(--amber);
     background: #0a0800;
     padding: 1.2em;
-    text-align: center;
     margin: 1em 0;
   }
   .flash-box p { margin: 0 0 0.8em; }
   esp-web-install-button { display: inline-block; }
-  .prompt { color: var(--amber-dim); }
-  .version { color: var(--amber-dim); font-size: 0.9em; }
-  hr {
-    border: 0;
-    border-top: 1px dashed var(--amber-dim);
-    margin: 1.5em 0;
-  }
+  .chrome-note { color: var(--amber-dim); }
 </style>
 <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js"></script>
 </head>
@@ -86,35 +52,12 @@
 <header>
   <img src="./chimpdeck-logo.png" alt="ChimpDeck monkey face logo, orange on black" width="180" height="180">
   <h1>ChimpDeck</h1>
-  <p class="subtitle">Sunton ESP32-8048S050 SSH Terminal</p>
+  <p class="version">Version 1.3.0, 2026-11-05</p>
 </header>
 
 <div class="flash-box">
-  <p>Flash the terminal firmware to your Sunton 5 inch display, straight from this page. No command line, no esptool install.</p>
   <p><esp-web-install-button manifest="./manifest.json"></esp-web-install-button></p>
+  <p class="chrome-note">Needs desktop Chrome or Edge. Web Serial does not work in Safari, Firefox, or on an iPad.</p>
 </div>
-
-<div class="term">
-  <h2>How to use it</h2>
-  <ol>
-    <li>Use desktop Chrome or Edge on a Mac or PC. Web Serial does not work in Safari, Firefox, or on an iPad.</li>
-    <li>Plug the Sunton display into the computer with a USB data cable.</li>
-    <li>Click Install above, then pick the Sunton serial port in the browser dialog. It is usually listed as USB-SERIAL CH340 or similar.</li>
-    <li>When asked, choose to erase the flash for a clean first install. That wipes any old settings on the board.</li>
-    <li>Wait for the flash to finish, then the display reboots into the launcher.</li>
-  </ol>
-</div>
-
-<div class="term">
-  <h2>After flashing</h2>
-  <p>On the display: open WiFi and connect, add a server in Server Profiles, pair a Bluetooth keyboard in Bluetooth Keyboards, then open SSH Terminal. Full instructions are in the <a href="https://github.com/handybrit/esp32-sunton-ssh-terminal">repo README</a>.</p>
-  <p>Firmware: merged image <code>esp32-sunton-ssh-merged.bin</code>, flashed to offset <code>0x0</code>, ESP32-S3, 16 MB flash. Version 1.3.0, 2026-11-05. Includes everything in 1.2.0, plus the display fix from known-good demo code for this board: pixel clock back to 16 MHz, porches 4/8/8, clock source PLL240M, a 20 line bounce buffer, and GDMA restart every VBlank, fixing text and testpattern degrading down the page.</p>
-  <p>Important: version 1.3.0 does not change the partition table from 1.1.0, so updating from 1.1.0 or 1.2.0 does not need an erase. If updating from 1.0.0, choose erase when the installer asks, or the OTA partitions from 1.1.0 will not take effect. Erasing wipes WiFi, profiles, and Bluetooth bonds, so re-enter them after flashing. Later updates can use the web UI Firmware update page without erasing.</p>
-  <p>Note: this firmware pairs with BLE keyboards only. The ESP32-S3 has no Classic Bluetooth, so a Classic-only keyboard will not appear in scans.</p>
-</div>
-
-<hr>
-<p class="prompt">sunton&gt; ready.</p>
-<p class="version">ChimpDeck web flasher, version 1.3.0, 2026-11-05.</p>
 </body>
 </html>
