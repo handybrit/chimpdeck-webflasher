@@ -44,6 +44,44 @@
   }
   .flash-box p { margin: 0 0 0.8em; }
   esp-web-install-button { display: inline-block; }
+  /* ChimpDeck theme for the esp-web-tools button and install dialog.
+     The dialog is a shadow-DOM component, but its colours are driven by
+     Material Design CSS custom properties, which inherit through the
+     shadow boundary. Verified in headless Chrome against esp-web-tools
+     10.4.0: setting these on ewt-install-dialog turns the white dialog
+     black with amber text. The dialog's own :host defaults are overridden
+     by page rules targeting the element. The Logs console pane itself
+     (ewt-console) hardcodes #1c1c1c / #ddd in its own shadow DOM and does
+     not use these tokens, so it stays dark grey, not amber; changing it
+     would need a forked component. */
+  esp-web-install-button {
+    --esp-tools-button-color: #ffb000;
+    --esp-tools-button-text-color: #000000;
+    --esp-tools-button-border-radius: 2px;
+  }
+  ewt-install-dialog {
+    --md-sys-color-primary: #ffb000;
+    --md-sys-color-on-primary: #000000;
+    --md-sys-color-surface: #000000;
+    --md-sys-color-surface-container: #000000;
+    --md-sys-color-surface-container-high: #0a0800;
+    --md-sys-color-surface-container-highest: #0a0800;
+    --md-sys-color-secondary-container: #1a1400;
+    --md-sys-color-on-surface: #ffb000;
+    --md-sys-color-on-surface-variant: #ffb000;
+    --md-sys-color-tertiary: #ffb000;
+    --md-sys-color-tertiary-container: #1a1400;
+    --md-sys-color-shadow: #000000;
+    --roboto-font: "VT323", "Courier New", Courier, monospace;
+    --md-ref-typeface-brand: "VT323", "Courier New", Courier, monospace;
+    --md-ref-typeface-plain: "VT323", "Courier New", Courier, monospace;
+    --md-sys-typescale-headline-font: "VT323", "Courier New", Courier, monospace;
+    --md-sys-typescale-title-font: "VT323", "Courier New", Courier, monospace;
+    --md-sys-typescale-body-large-font: "VT323", "Courier New", Courier, monospace;
+    --md-sys-typescale-body-medium-font: "VT323", "Courier New", Courier, monospace;
+    --md-sys-typescale-label-large-font: "VT323", "Courier New", Courier, monospace;
+    --text-color: #ffb000;
+  }
   .chrome-note { color: var(--amber-dim); }
 </style>
 <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js"></script>
@@ -53,7 +91,7 @@
   <img src="./chimpdeck-logo.png" alt="ChimpDeck monkey face logo, orange on black" width="180" height="180">
   <h1>ChimpDeck</h1>
   <p class="version">Version 1.5.0, 2026-11-05</p>
-  <p class="version">What's changed: boot splash, monkey logo orange on black, 3 seconds at boot.</p>
+  <p class="version">What's changed: boot splash, monkey logo orange on black, 3 seconds at boot. Install dialog now amber on black, titled ChimpDeck Console.</p>
 </header>
 
 <div class="flash-box">
